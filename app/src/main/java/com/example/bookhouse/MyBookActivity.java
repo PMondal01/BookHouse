@@ -156,9 +156,9 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
     private void saveData() {
         progressBar.setVisibility(View.VISIBLE);
         final String book_name = bname.getText().toString().trim();
-        String writer_name = wname.getText().toString().trim();
-        String description = des.getText().toString().trim();
-        String Price = price.getText().toString().trim();
+        final String writer_name = wname.getText().toString().trim();
+        final String description = des.getText().toString().trim();
+        final String Price = price.getText().toString().trim();
 
 
         if (book_name.isEmpty()) {
@@ -173,7 +173,7 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        if (Price.isEmpty()) {
+       if   (Price.isEmpty()) {
             price.setError("Enter Book Name");
             bname.requestFocus();
             return;
@@ -190,7 +190,7 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), "book added", Toast.LENGTH_LONG).show();
 
-                        Upload upload = new Upload(book_name, taskSnapshot.getStorage().getDownloadUrl().toString());
+                        Upload upload = new Upload(book_name,writer_name,description,Price,taskSnapshot.getStorage().getDownloadUrl().toString());
 
                         String uploadId = databaseReference.push().getKey();
                         databaseReference.child(uploadId).setValue(upload);
