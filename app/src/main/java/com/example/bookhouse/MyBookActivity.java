@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -57,11 +58,10 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
         storageReference = FirebaseStorage.getInstance().getReference("Upload");
 
         button_chooseBook = findViewById(R.id.btn_choose);
-        button_displayBook = findViewById(R.id.btn_display);
+       /* button_displayBook = findViewById(R.id.btn_display);*/
         button_save = findViewById(R.id.btn_save);
         imageView = findViewById(R.id.image);
         checkBox_box = findViewById(R.id.checkbox);
-        linearLayout_price = findViewById(R.id.price_layout);
 
         bname=findViewById(R.id.book_name);
         wname=findViewById(R.id.writer_name);
@@ -70,9 +70,9 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
         progressBar=findViewById(R.id.progress);
 
         button_chooseBook.setOnClickListener(this);
-        button_displayBook.setOnClickListener(this);
+     /*   button_displayBook.setOnClickListener(this);*/
         button_save.setOnClickListener(this);
-        checkBox_box.setOnClickListener(this);
+       /* checkBox_box.setOnClickListener(this);*/
     }
 
     @Override
@@ -85,9 +85,9 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
 
                 break;
 
-            case R.id.btn_display:
+            /*case R.id.btn_display:
 
-                break;
+                break;*/
 
             case R.id.btn_save:
 
@@ -190,7 +190,13 @@ public class MyBookActivity extends AppCompatActivity implements View.OnClickLis
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), "book added", Toast.LENGTH_LONG).show();
 
-                        Upload upload = new Upload(book_name,writer_name,description,Price,taskSnapshot.getStorage().getDownloadUrl().toString());
+
+                        Task<Uri> uriTask=taskSnapshot.getStorage().getDownloadUrl();
+                        while ((!uriTask.isSuccessful()));
+                        Uri downloadUrl=uriTask.getResult();
+
+
+                        Upload upload = new Upload(book_name,writer_name,description,Price,downloadUrl.toString());
 
                         String uploadId = databaseReference.push().getKey();
                         databaseReference.child(uploadId).setValue(upload);

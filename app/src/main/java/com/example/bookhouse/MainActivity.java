@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }else if(view.getId()==R.id.btn_opinion)
         {
-            intent=new Intent(this,MyOpinion.class); //error
+            intent=new Intent(this,FeedbackActivity.class); //error
         }
         startActivity(intent);
 
