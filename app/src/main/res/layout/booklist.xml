@@ -18,15 +18,71 @@
             android:scaleType="fitXY">
         </ImageView>
 
-        <TextView
-            android:id="@+id/bookname_card"
-            android:layout_width="match_parent"
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Book name"
-            android:layout_marginTop="5dp"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large">
-        </TextView>
+            android:orientation="horizontal"
+           >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="বইয়ের নাম : "
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/bookname_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book name"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large">
+            </TextView>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  দাম : "
+                    android:layout_marginTop="5dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/bookprice_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Book Price"
+                    android:layout_marginTop="5dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large">
+                </TextView>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
 
 
 

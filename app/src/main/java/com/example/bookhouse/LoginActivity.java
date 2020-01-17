@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     EditText editText_emailLogin, editText_passLogin;
     Button button_signUp,button_LOGin;
+    TextView tvSignIn;
 
 
     @Override
@@ -23,11 +25,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         editText_emailLogin=findViewById(R.id.email_log);
         editText_passLogin=findViewById(R.id.pass_log);
-        button_signUp=findViewById(R.id.signup);
+       /* button_signUp=findViewById(R.id.signup);*/
         button_LOGin=findViewById(R.id.btn_login);
+        tvSignIn=findViewById(R.id.tvSignIn);
 
-        button_signUp.setOnClickListener(this);
+       /* button_signUp.setOnClickListener(this);*/
         button_LOGin.setOnClickListener(this);
+        tvSignIn.setOnClickListener(this);
 
 
     }
@@ -39,9 +43,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view.getId()==R.id.btn_login)
         {
             intent =new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(intent);
+
         }
-        else if(view.getId()==R.id.signup)
+       else if(view.getId()==R.id.tvSignIn)
         {
             intent=new Intent(this,SignupActivity.class);
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private EditText user_name, user_mobile, user_address, user_email, user_pass,user_fburl;
     private Button signup, login;
+    private TextView tvSignIn;
     private ProgressBar progressBar;
     LinearLayout facebook_layout;
 
@@ -41,16 +43,17 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         user_mobile = findViewById(R.id.mobile);
         user_email = findViewById(R.id.email_signup);
         user_pass = findViewById(R.id.pass_signup);
-        user_fburl=findViewById(R.id.fb_url);
+       /* user_fburl=findViewById(R.id.fb_url);*/
         progressBar=findViewById(R.id.progress);
 
         signup = findViewById(R.id.btn_signup);
-        login = findViewById(R.id.login_signup);
+      /*  login = findViewById(R.id.login_signup);*/
+        tvSignIn=findViewById(R.id.tvSignIn);
 
         signup.setOnClickListener(this);
-        login.setOnClickListener(this);
+       /* login.setOnClickListener(this);*/
 
-        facebook_layout=findViewById(R.id.fb_layout);
+        /*facebook_layout=findViewById(R.id.fb_layout);*/
     }
 
     @Override
@@ -60,7 +63,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 userRegister();
                 break;
 
-            case R.id.login_signup:
+            case R.id.tvSignIn:
                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
@@ -75,7 +78,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String mobile = user_mobile.getText().toString().trim();
         String email = user_email.getText().toString().trim();
         String password = user_pass.getText().toString().trim();
-        String faceBookurl=user_fburl.getText().toString().trim();
+       /* String faceBookurl=user_fburl.getText().toString().trim();*/
 
         if (name.isEmpty()) {
             user_name.setError("Enter your name ");
@@ -89,12 +92,12 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        if (mobile.isEmpty() && faceBookurl.isEmpty()) {
+      /*  if (mobile.isEmpty() && faceBookurl.isEmpty()) {
             facebook_layout.setVisibility(View.VISIBLE);
             user_fburl.setError("Mobile No or FB url is required ");
             user_fburl.requestFocus();
             return;
-        }
+        }*/
 
 
       /*  if(mobile.isEmpty() && faceBookurl.isEmpty())
